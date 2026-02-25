@@ -1,26 +1,32 @@
 # mcp-uspto
 
-MCP server for US Patent and Trademark Office data. Search patents via [PatentsView](https://patentsview.org) and trademarks via USPTO TSDR. No API key required.
+Search US Patent and Trademark Office for patents, trademarks, and applications.
+
+> **Free API** — No API key required.
 
 ## Tools
 
 | Tool | Description |
 |------|-------------|
-| `search_patents` | Full-text patent search with filters (assignee, inventor, date, CPC code) |
-| `get_patent` | Get detailed patent info by patent number |
-| `search_inventors` | Search patent inventors by name |
-| `search_assignees` | Search patent assignees/companies by name |
-| `search_cpc` | Look up CPC classification codes and descriptions |
-| `search_trademarks` | Look up trademark status by serial/registration number |
+| `search_patents` | Search US patents using the PatentsView API. Supports full-text and field-specific queries. |
+| `get_patent` | Get detailed information about a specific US patent by patent number. |
+| `search_inventors` | Search patent inventors by name. |
+| `search_assignees` | Search patent assignees (companies/organizations) by name. |
+| `search_cpc` | Search CPC (Cooperative Patent Classification) codes and their descriptions. |
+| `search_trademarks` | Search US trademark registrations by serial or registration number via USPTO TSDR. |
 
-## Install
+## Installation
 
 ```bash
+git clone https://github.com/PetrefiedThunder/mcp-uspto.git
+cd mcp-uspto
 npm install
 npm run build
 ```
 
 ## Usage with Claude Desktop
+
+Add to your `claude_desktop_config.json`:
 
 ```json
 {
@@ -33,17 +39,11 @@ npm run build
 }
 ```
 
-## Examples
+## Usage with npx
 
-- Search patents about "machine learning" from Google: `search_patents(query: "machine learning", assignee: "Google")`
-- Get patent details: `get_patent(patentId: "11234567")`
-- Find prolific inventors: `search_inventors(name: "Hinton")`
-- Look up CPC codes: `search_cpc(query: "H04L")` or `search_cpc(query: "neural network")`
-- Check trademark status: `search_trademarks(serialNumber: "97123456")`
-
-## Rate Limits
-
-Conservative rate limiting (2 req/s) is enforced automatically. No API key needed.
+```bash
+npx mcp-uspto
+```
 
 ## License
 
