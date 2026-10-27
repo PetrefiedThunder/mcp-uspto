@@ -47,4 +47,4 @@ npx mcp-uspto
 
 ## License
 
-MIT
+Apache-2.0
